@@ -14,16 +14,26 @@
     color: #000;
   }
 
+  /* ── HEADER ── */
   .test-header { background: #1a1a2e; color: white; }
   .test-header-inner {
     max-width: 1100px; margin: 0 auto; padding: 10px 20px;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
   }
   .act-logo { font-family: Arial, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 3px; color: #ff6b35; }
   .test-title { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; }
-  .score-box { font-family: Arial, sans-serif; font-size: 13px; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 3px; }
+  .score-box { font-family: Arial, sans-serif; font-size: 13px; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 3px; white-space: nowrap; }
   .score-box span { font-weight: 700; font-size: 16px; color: #ff6b35; }
 
+  /* ── VERSION BADGE ── */
+  .version-badge {
+    font-family: Arial, sans-serif; font-size: 10px; font-weight: 700;
+    padding: 3px 10px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .version-badge.standard { background: #2d4a6b; color: white; }
+  .version-badge.el { background: #2d6a4f; color: white; }
+
+  /* ── DIRECTIONS / PROMPT ── */
   .directions-bar { background: #f0f0f0; border-bottom: 2px solid #333; padding: 8px 0; }
   .directions-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif; font-size: 11px; color: #333; }
 
@@ -34,25 +44,26 @@
   .prompt-banner-devices { display: flex; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
   .device-tag { background: rgba(255,255,255,0.15); font-size: 10px; padding: 2px 8px; border-radius: 2px; font-style: normal; letter-spacing: 0.5px; }
 
+  /* ── SECTION HEADER ── */
   .passage-section-header { max-width: 1100px; margin: 16px auto 0; padding: 0 20px; }
   .passage-section-header h2 { font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 3px solid #000; padding-bottom: 4px; margin-bottom: 2px; }
   .passage-section-sub { font-family: Arial, sans-serif; font-size: 10px; color: #555; margin-bottom: 10px; }
 
-  .test-page { max-width: 1100px; margin: 0 auto; padding: 0 20px 30px; }
+  /* ── SCORING INFO BAR ── */
+  .scoring-bar { background: #fff8e1; border-bottom: 1px solid #f0c040; padding: 6px 0; }
+  .scoring-bar-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif; font-size: 11px; color: #7a5800; }
 
+  /* ── TEST PAGE ── */
+  .test-page { max-width: 1100px; margin: 0 auto; padding: 0 20px 30px; }
   .passage-block { display: none; }
   .passage-block.active { display: block; }
 
   .two-col {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    display: grid; grid-template-columns: 1fr 1fr;
     background: white; border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
-
   .passage-col { border-right: 1px solid #999; }
-  .passage-col-header {
-    background: #1a1a2e; color: white; padding: 8px 16px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
+  .passage-col-header { background: #1a1a2e; color: white; padding: 8px 16px; }
   .passage-col-header-left { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; }
   .passage-source-line { font-family: Arial, sans-serif; font-size: 10px; color: #555; font-style: italic; padding: 6px 16px; border-bottom: 1px solid #ddd; background: #fafafa; }
   .passage-text { padding: 16px 18px; font-size: 14.5px; line-height: 2; }
@@ -60,6 +71,12 @@
   .passage-text p:last-child { margin-bottom: 0; }
   .line-num { display: inline-block; width: 28px; font-size: 10px; font-family: Arial, sans-serif; color: #888; user-select: none; vertical-align: top; padding-top: 3px; }
 
+  /* EL larger font */
+  .el-mode .passage-text { font-size: 15.5px; line-height: 2.1; }
+  .el-mode .q-text { font-size: 14.5px; }
+  .el-mode .opt-text { font-size: 14px; }
+
+  /* ── QUESTIONS ── */
   .questions-col {}
   .questions-col-header {
     background: #2d4a6b; color: white; padding: 8px 16px;
@@ -67,24 +84,17 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .q-range-badge { font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 2px; }
-
   .questions-list { padding: 14px 16px; display: flex; flex-direction: column; gap: 20px; }
 
   .q-number-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
-  .q-circle {
-    min-width: 22px; height: 22px; border-radius: 50%; background: #1a1a2e; color: white;
-    font-family: Arial, sans-serif; font-size: 11px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
-  }
-  .q-type-label {
-    font-family: Arial, sans-serif; font-size: 9px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; margin-top: 4px;
-  }
+  .q-circle { min-width: 22px; height: 22px; border-radius: 50%; background: #1a1a2e; color: white; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .q-type-label { font-family: Arial, sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; margin-top: 4px; }
   .q-type-label.identify { background: #ffe0d6; color: #8b2e00; }
   .q-type-label.locate   { background: #d6e8ff; color: #00358b; }
 
   .q-text { font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; padding-left: 30px; }
 
+  /* ── OPTIONS ── */
   .options-list { display: flex; flex-direction: column; gap: 5px; padding-left: 14px; }
   .opt-row button {
     background: none; border: none; padding: 0; cursor: pointer;
@@ -101,21 +111,36 @@
   }
   .opt-bubble.correct { background: #2d6a4f !important; color: white !important; border-color: #2d6a4f !important; }
   .opt-bubble.wrong   { background: #8b2e2e !important; color: white !important; border-color: #8b2e2e !important; }
+  .opt-bubble.retry-wrong { background: #b05800 !important; color: white !important; border-color: #b05800 !important; }
 
   .opt-text { font-family: 'Times New Roman', Times, serif; font-size: 13px; line-height: 1.45; color: #000; padding-top: 2px; }
   .opt-text.correct-text { color: #2d6a4f; font-weight: 700; }
   .opt-text.wrong-text   { color: #8b2e2e; }
 
+  /* ── FEEDBACK ── */
   .feedback-box {
     display: none; margin-top: 10px; margin-left: 14px; padding: 8px 12px;
     font-family: Arial, sans-serif; font-size: 11px; line-height: 1.5; border-radius: 2px;
   }
   .feedback-box.show { display: block; }
-  .feedback-box.correct { background: #e8f5ee; border-left: 3px solid #2d6a4f; color: #1a4a33; }
-  .feedback-box.wrong   { background: #faeaea; border-left: 3px solid #8b2e2e; color: #5a1a1a; }
+  .feedback-box.correct   { background: #e8f5ee; border-left: 3px solid #2d6a4f; color: #1a4a33; }
+  .feedback-box.correct-2nd { background: #fff3e0; border-left: 3px solid #e65100; color: #5a2d00; }
+  .feedback-box.wrong     { background: #faeaea; border-left: 3px solid #8b2e2e; color: #5a1a1a; }
+  .feedback-box.try-again { background: #fff3cd; border-left: 3px solid #e6a817; color: #7a4a00; }
+
+  /* ── SCORE POINT INDICATOR ── */
+  .point-flash {
+    display: inline-block; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700;
+    padding: 2px 7px; border-radius: 10px; margin-left: 6px;
+    animation: flashIn 0.3s ease;
+  }
+  .point-flash.full  { background: #2d6a4f; color: white; }
+  .point-flash.half  { background: #e65100; color: white; }
+  @keyframes flashIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
 
   .q-divider { border: none; border-top: 1px solid #e0e0e0; }
 
+  /* ── NAV ── */
   .nav-strip {
     max-width: 1100px; margin: 0 auto; padding: 12px 20px;
     display: flex; align-items: center; justify-content: space-between;
@@ -123,7 +148,8 @@
   }
   .passage-dots { display: flex; gap: 6px; align-items: center; }
   .pdot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #999; background: white; cursor: pointer; transition: all 0.15s; }
-  .pdot.done { background: #2d6a4f; border-color: #2d6a4f; }
+  .pdot.done-full    { background: #2d6a4f; border-color: #2d6a4f; }
+  .pdot.done-partial { background: #e65100; border-color: #e65100; }
   .pdot.current { background: #1a1a2e; border-color: #1a1a2e; }
   .pdot-label { font-family: Arial, sans-serif; font-size: 10px; color: #555; margin-right: 4px; }
 
@@ -135,15 +161,53 @@
   .btn-next:hover:not(:disabled) { background: #2d4a6b; }
   .btn:disabled { opacity: 0.35; cursor: default; }
 
-  /* RESULTS */
+  /* ── VERSION SELECT SCREEN ── */
+  #version-screen {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: #1a1a2e;
+    padding: 20px;
+  }
+  .version-card {
+    background: white; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    max-width: 680px; width: 100%; overflow: hidden;
+  }
+  .version-card-top {
+    background: #1a1a2e; padding: 28px 32px; text-align: center;
+  }
+  .version-act-logo { font-family: Arial, sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 4px; color: #ff6b35; margin-bottom: 6px; }
+  .version-card-top p { font-family: Arial, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .version-card-body { padding: 28px 32px; }
+  .version-card-body h2 { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+  .version-card-body p { font-family: Arial, sans-serif; font-size: 12px; color: #555; margin-bottom: 24px; line-height: 1.6; }
+
+  .version-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .version-btn {
+    border: 2px solid #ddd; border-radius: 4px; padding: 20px 18px;
+    background: white; cursor: pointer; text-align: left; transition: all 0.15s;
+    font-family: Arial, sans-serif;
+  }
+  .version-btn:hover { border-color: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .version-btn-icon { font-size: 28px; margin-bottom: 8px; }
+  .version-btn-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .version-btn-sub { font-size: 11px; color: #666; line-height: 1.5; }
+  .version-btn.standard:hover { border-color: #2d4a6b; }
+  .version-btn.el:hover { border-color: #2d6a4f; }
+  .version-btn.standard .version-btn-title { color: #2d4a6b; }
+  .version-btn.el .version-btn-title { color: #2d6a4f; }
+
+  /* ── RESULTS ── */
   #results-page { display: none; max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }
   .results-card { background: white; border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-  .results-top { background: #1a1a2e; color: white; padding: 24px 32px; display: flex; align-items: center; gap: 32px; }
+  .results-top { background: #1a1a2e; color: white; padding: 24px 32px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
   .results-score-big { font-family: Arial, sans-serif; font-size: 56px; font-weight: 700; color: #ff6b35; line-height: 1; }
   .results-score-denom { font-family: Arial, sans-serif; font-size: 18px; color: rgba(255,255,255,0.5); }
   .results-right h2 { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 6px; }
   .results-right p { font-family: Arial, sans-serif; font-size: 13px; opacity: 0.8; line-height: 1.5; }
   .results-body { padding: 28px 32px; }
+
+  .score-breakdown { font-family: Arial, sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 6px; }
+  .score-breakdown span { color: white; font-weight: 700; }
 
   .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
   .device-def-card { border: 1px solid #ddd; padding: 14px; }
@@ -157,333 +221,291 @@
   .essay-box ul { padding-left: 20px; margin-top: 8px; }
   .essay-box ul li { font-size: 13.5px; line-height: 1.9; }
 
-  .retry-btn { font-family: Arial, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 10px 28px; background: #1a1a2e; color: white; border: none; cursor: pointer; }
+  .results-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .retry-btn { font-family: Arial, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 10px 24px; background: #1a1a2e; color: white; border: none; cursor: pointer; }
   .retry-btn:hover { background: #2d4a6b; }
+  .switch-btn { font-family: Arial, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 10px 24px; background: white; color: #1a1a2e; border: 2px solid #1a1a2e; cursor: pointer; }
+  .switch-btn:hover { background: #f0f0f0; }
 
   @media (max-width: 700px) {
     .two-col { grid-template-columns: 1fr; }
     .passage-col { border-right: none; border-bottom: 1px solid #999; }
     .device-grid { grid-template-columns: 1fr; }
-    .results-top { flex-direction: column; gap: 16px; }
+    .version-options { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div class="test-header">
-  <div class="test-header-inner">
-    <div class="act-logo">ACT</div>
-    <div class="test-title">English Practice — Literary Devices</div>
-    <div class="score-box">Score: <span id="score-display">0</span> / <span id="total-display">16</span></div>
-  </div>
-</div>
-
-<div class="directions-bar">
-  <div class="directions-inner">
-    <strong>DIRECTIONS:</strong> In the following test, each passage is followed by several questions. After reading each passage, choose the best answer to each question. You may refer to the passages as often as necessary.
-  </div>
-</div>
-
-<div class="prompt-banner">
-  <div class="prompt-banner-inner">
-    <div class="prompt-banner-label">Writing Prompt — Use these passages to prepare your essay</div>
-    <div class="prompt-banner-text">What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>? Choose one device to build your argument:</div>
-    <div class="prompt-banner-devices">
-      <span class="device-tag">Tragic Flaw</span>
-      <span class="device-tag">Situational Irony</span>
-      <span class="device-tag">Dramatic Irony</span>
-      <span class="device-tag">Symbolism</span>
+<!-- ════════════════════════════════════════════════════════════
+     VERSION SELECT SCREEN
+═════════════════════════════════════════════════════════════ -->
+<div id="version-screen">
+  <div class="version-card">
+    <div class="version-card-top">
+      <div class="version-act-logo">ACT</div>
+      <p>Literary Devices Practice Test</p>
+    </div>
+    <div class="version-card-body">
+      <h2>Choose Your Version</h2>
+      <p>Both versions cover the same four literary devices: <strong>Tragic Flaw, Situational Irony, Dramatic Irony,</strong> and <strong>Symbolism.</strong> Select the version that works best for you.</p>
+      <div class="version-options">
+        <button class="version-btn standard" onclick="startTest('standard')">
+          <div class="version-btn-icon">📄</div>
+          <div class="version-btn-title">Standard Version</div>
+          <div class="version-btn-sub">Original passages from <em>Macbeth</em> and classic literature. ACT-level reading.</div>
+        </button>
+        <button class="version-btn el" onclick="startTest('el')">
+          <div class="version-btn-icon">🌱</div>
+          <div class="version-btn-title">EL Version</div>
+          <div class="version-btn-sub">Simplified passages with shorter sentences and everyday vocabulary. Same devices, easier text.</div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="passage-section-header">
-  <h2>Passage Section</h2>
-  <div class="passage-section-sub" id="section-sub">Passage 1 of 8</div>
-</div>
+<!-- ════════════════════════════════════════════════════════════
+     MAIN TEST UI (hidden until version chosen)
+═════════════════════════════════════════════════════════════ -->
+<div id="test-ui" style="display:none">
 
-<div class="test-page" id="test-page">
-  <!-- passages rendered by JS -->
-</div>
-
-<div class="nav-strip" id="nav-strip">
-  <div style="display:flex;align-items:center;gap:8px">
-    <span class="pdot-label">Passages:</span>
-    <div class="passage-dots" id="passage-dots"></div>
-  </div>
-  <div class="nav-btns">
-    <button class="btn btn-prev" id="prev-btn" onclick="navigate(-1)" disabled>&#9664; Back</button>
-    <button class="btn btn-next" id="next-btn" onclick="navigate(1)">Next &#9654;</button>
-  </div>
-</div>
-
-<div id="results-page">
-  <div class="results-card">
-    <div class="results-top">
-      <div>
-        <div style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.6;margin-bottom:6px">Final Score</div>
-        <div class="results-score-big" id="final-score-num">0</div>
-        <div class="results-score-denom">out of 16</div>
+  <div class="test-header">
+    <div class="test-header-inner">
+      <div class="act-logo">ACT</div>
+      <div class="test-title">English Practice — Literary Devices</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="version-badge" id="version-badge">Standard</span>
+        <div class="score-box">Score: <span id="score-display">0</span> / <span id="total-display">16</span></div>
       </div>
-      <div class="results-right">
-        <h2>Practice Test Complete</h2>
-        <p id="results-message"></p>
-        <div style="margin-top:14px;height:6px;background:rgba(255,255,255,0.15);border-radius:3px;width:300px;max-width:100%;overflow:hidden">
-          <div id="results-bar" style="height:100%;background:#ff6b35;border-radius:3px;transition:width 0.6s ease;width:0%"></div>
+    </div>
+  </div>
+
+  <div class="directions-bar">
+    <div class="directions-inner">
+      <strong>DIRECTIONS:</strong> In the following test, each passage is followed by several questions. After reading each passage, choose the best answer to each question. You may refer to the passages as often as necessary.
+    </div>
+  </div>
+
+  <div class="scoring-bar">
+    <div class="scoring-bar-inner">
+      ⭐ <strong>Scoring:</strong> Answer correctly on your <strong>first try</strong> = 1 point. &nbsp;|&nbsp; Wrong first, then correct = ½ point. &nbsp;|&nbsp; Wrong both times = 0 points. &nbsp;|&nbsp; You have <strong>2 tries</strong> per question.
+    </div>
+  </div>
+
+  <div class="prompt-banner">
+    <div class="prompt-banner-inner">
+      <div class="prompt-banner-label">Writing Prompt — Use these passages to prepare your essay</div>
+      <div class="prompt-banner-text">What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>? Choose one device to build your argument:</div>
+      <div class="prompt-banner-devices">
+        <span class="device-tag">Tragic Flaw</span>
+        <span class="device-tag">Situational Irony</span>
+        <span class="device-tag">Dramatic Irony</span>
+        <span class="device-tag">Symbolism</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="passage-section-header">
+    <h2>Passage Section</h2>
+    <div class="passage-section-sub" id="section-sub">Passage 1 of 8</div>
+  </div>
+
+  <div class="test-page" id="test-page"></div>
+
+  <div class="nav-strip" id="nav-strip">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="pdot-label">Passages:</span>
+      <div class="passage-dots" id="passage-dots"></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn btn-prev" id="prev-btn" onclick="navigate(-1)" disabled>&#9664; Back</button>
+      <button class="btn btn-next" id="next-btn" onclick="navigate(1)">Next &#9654;</button>
+    </div>
+  </div>
+
+</div><!-- /test-ui -->
+
+<!-- ════════════════════════════════════════════════════════════
+     RESULTS
+═════════════════════════════════════════════════════════════ -->
+<div id="results-page">
+  <div style="background:#1a1a2e;padding:10px 0">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:12px">
+      <div class="act-logo" style="font-family:Arial,sans-serif;font-weight:700;font-size:22px;letter-spacing:3px;color:#ff6b35">ACT</div>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 20px 40px">
+    <div class="results-card">
+      <div class="results-top">
+        <div>
+          <div style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.6;margin-bottom:6px">Final Score</div>
+          <div class="results-score-big" id="final-score-num">0</div>
+          <div class="results-score-denom">out of 16</div>
+          <div class="score-breakdown">First try: <span id="res-first">0</span> pts &nbsp;|&nbsp; Second try: <span id="res-second">0</span> pts</div>
+        </div>
+        <div class="results-right">
+          <h2>Practice Test Complete</h2>
+          <p id="results-message"></p>
+          <div style="margin-top:14px;height:6px;background:rgba(255,255,255,0.15);border-radius:3px;width:300px;max-width:100%;overflow:hidden">
+            <div id="results-bar" style="height:100%;background:#ff6b35;border-radius:3px;transition:width 0.6s ease;width:0%"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="results-body">
-      <h3 style="font-family:Arial,sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;color:#333">Literary Device Definitions</h3>
-      <div class="device-grid">
-        <div class="device-def-card"><div class="device-def-name">Tragic Flaw</div><div class="device-def-text">An internal weakness in a character that leads to their downfall. Macbeth's ambition drives him to murder and ruin.</div></div>
-        <div class="device-def-card"><div class="device-def-name">Situational Irony</div><div class="device-def-text">When what happens is the opposite of what was expected. The witches' "safe" prophecies bring about Macbeth's destruction.</div></div>
-        <div class="device-def-card"><div class="device-def-name">Dramatic Irony</div><div class="device-def-text">When the audience knows something a character does not. We know Duncan trusts his own killer.</div></div>
-        <div class="device-def-card"><div class="device-def-name">Symbolism</div><div class="device-def-text">An object or image that represents a larger idea. Blood in <em>Macbeth</em> symbolizes guilt that cannot be washed away.</div></div>
+      <div class="results-body">
+        <h3 style="font-family:Arial,sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;color:#333">Literary Device Definitions</h3>
+        <div class="device-grid">
+          <div class="device-def-card"><div class="device-def-name">Tragic Flaw</div><div class="device-def-text">An internal weakness in a character that leads to their downfall. Macbeth's ambition drives him to murder and ruin.</div></div>
+          <div class="device-def-card"><div class="device-def-name">Situational Irony</div><div class="device-def-text">When what happens is the opposite of what was expected. The witches' "safe" prophecies bring about Macbeth's destruction.</div></div>
+          <div class="device-def-card"><div class="device-def-name">Dramatic Irony</div><div class="device-def-text">When the audience knows something a character does not. We know Duncan trusts his own killer.</div></div>
+          <div class="device-def-card"><div class="device-def-name">Symbolism</div><div class="device-def-text">An object or image that represents a larger idea. Blood in <em>Macbeth</em> symbolizes guilt that cannot be washed away.</div></div>
+        </div>
+        <div class="essay-box">
+          <div class="essay-box-label">Your Essay Writing Prompt</div>
+          <p>Write an argument in the form of a response to literature that answers:</p>
+          <p><strong>What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>?</strong></p>
+          <p>Choose one of the literary devices below to build your argument:</p>
+          <ul><li>Tragic flaw</li><li>Situational irony</li><li>Dramatic irony</li><li>Symbolism</li></ul>
+        </div>
+        <div class="results-btns">
+          <button class="retry-btn" onclick="restartTest()">&#8635; Retake This Version</button>
+          <button class="switch-btn" onclick="switchVersion()">&#8644; Switch Version</button>
+        </div>
       </div>
-      <div class="essay-box">
-        <div class="essay-box-label">Your Essay Writing Prompt</div>
-        <p>Write an argument in the form of a response to literature that answers:</p>
-        <p><strong>What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>?</strong></p>
-        <p>Choose one of the literary devices below to build your argument:</p>
-        <ul>
-          <li>Tragic flaw</li><li>Situational irony</li><li>Dramatic irony</li><li>Symbolism</li>
-        </ul>
-      </div>
-      <button class="retry-btn" onclick="restartTest()">&#8635; Retake Test</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── ALL PASSAGE DATA ──────────────────────────────────────────────────────────
-const ALL_PASSAGES = [
-  {
-    source: "From <em>Macbeth</em>, Act I, Scene vii — William Shakespeare",
-    lines: [
-      '"I have no spur',
-      'To prick the sides of my intent, but only',
-      'Vaulting ambition, which o\'erleaps itself',
-      'And falls on th\' other side."'
-    ],
-    note: "In this soliloquy, Macbeth admits to himself that he has no good reason to murder King Duncan — only his own ambition drives him forward.",
-    q1: {
-      question: "This passage is an example of which literary device?",
-      options: ["Symbolism","Dramatic irony","Tragic flaw","Situational irony"],
-      correct: 2,
-      feedback: "Macbeth admits his only motivation is ambition — naming that internal weakness is the definition of a tragic flaw."
-    },
-    q2: {
-      options: [
-        '"I have no spur / To prick the sides of my intent"',
-        '"Vaulting ambition, which o\'erleaps itself / And falls on th\' other side"',
-        '"but only"',
-        '"And falls on th\' other side"'
-      ],
-      correct: 1,
-      feedback: '"Vaulting ambition…falls on th\' other side" names the fatal quality that will destroy Macbeth — the heart of a tragic flaw.'
-    }
-  },
-  {
-    source: "From <em>Romeo and Juliet</em>, Act III, Scene i — William Shakespeare",
-    lines: [
-      'Romeo draws his sword and slays Tybalt in',
-      'the street — though moments before he had',
-      'begged for peace. His hot temper, the very',
-      'impulsiveness that makes him passionate,',
-      'now earns him banishment and sets in motion',
-      'the tragedy that follows.'
-    ],
-    q1: {
-      question: "What literary device does this passage demonstrate?",
-      options: ["Dramatic irony","Tragic flaw","Symbolism","Situational irony"],
-      correct: 1,
-      feedback: "Romeo's impulsiveness is his tragic flaw — the internal weakness that causes his ruin even when he tried to avoid violence."
-    },
-    q2: {
-      options: [
-        '"Romeo draws his sword and slays Tybalt"',
-        '"moments before he had begged for peace"',
-        '"His hot temper, the very impulsiveness that makes him passionate"',
-        '"earns him banishment"'
-      ],
-      correct: 2,
-      feedback: '"His hot temper, the very impulsiveness that makes him passionate" names Romeo\'s fatal internal quality — the definition of a tragic flaw.'
-    }
-  },
-  {
-    source: "From <em>Macbeth</em>, Act V, Scene viii — William Shakespeare",
-    lines: [
-      'Macbeth had believed the witches\' prophecy',
-      'made him invincible — no man born of woman',
-      'could harm him. He fought fearlessly, certain',
-      'of his safety. Yet Macduff revealed he was',
-      '"from his mother\'s womb / Untimely ripped,"',
-      'and Macbeth fell.'
-    ],
-    q1: {
-      question: "What literary device is at work in this passage?",
-      options: ["Tragic flaw","Symbolism","Dramatic irony","Situational irony"],
-      correct: 3,
-      feedback: "Situational irony occurs when the opposite of what is expected happens. The prophecy that gave Macbeth false courage is the very thing that leads to his death."
-    },
-    q2: {
-      options: [
-        '"Macbeth had believed the witches\' prophecy made him invincible"',
-        '"He fought fearlessly, certain of his safety"',
-        '"from his mother\'s womb / Untimely ripped"',
-        '"Yet Macduff revealed…and Macbeth fell"'
-      ],
-      correct: 3,
-      feedback: '"Yet Macduff revealed…and Macbeth fell" captures the reversal — the prophecy meant to protect Macbeth is what destroys him.'
-    }
-  },
-  {
-    source: "From <em>The Gift of the Magi</em> — O. Henry (1905)",
-    lines: [
-      'Della sold her beautiful long hair to buy Jim',
-      'a chain for his pocket watch. Jim, meanwhile,',
-      'sold his watch to buy combs for Della\'s hair.',
-      'Each gave up their most prized possession to',
-      'give the other a gift — only to find the gift',
-      'now useless.'
-    ],
-    q1: {
-      question: "What literary device does this passage use?",
-      options: ["Symbolism","Tragic flaw","Situational irony","Dramatic irony"],
-      correct: 2,
-      feedback: "Both characters' loving sacrifices produce the opposite of what they intended — their gifts become useless because of each other's actions. That's situational irony."
-    },
-    q2: {
-      options: [
-        '"Della sold her beautiful long hair"',
-        '"Jim, meanwhile, sold his watch"',
-        '"Each gave up their most prized possession"',
-        '"only to find the gift now useless"'
-      ],
-      correct: 3,
-      feedback: '"only to find the gift now useless" is where the irony lands — generous acts produced the opposite of a happy result.'
-    }
-  },
-  {
-    source: "From <em>Macbeth</em>, Act I, Scene vi — William Shakespeare",
-    lines: [
-      'King Duncan arrives at Macbeth\'s castle and',
-      'praises its pleasant setting: "This castle hath',
-      'a pleasant seat; the air / Nimbly and sweetly',
-      'recommends itself / Unto our gentle senses."',
-      'He suspects nothing — yet the audience knows',
-      'Macbeth and Lady Macbeth have already',
-      'plotted to murder him inside those very walls.'
-    ],
-    q1: {
-      question: "What literary device is used in this passage?",
-      options: ["Tragic flaw","Dramatic irony","Symbolism","Situational irony"],
-      correct: 1,
-      feedback: "Dramatic irony occurs when the audience knows something a character does not. We know of the murder plot; Duncan does not."
-    },
-    q2: {
-      options: [
-        '"This castle hath a pleasant seat"',
-        '"the air / Nimbly and sweetly recommends itself"',
-        '"He suspects nothing — yet the audience knows Macbeth…plotted to murder him"',
-        '"Unto our gentle senses"'
-      ],
-      correct: 2,
-      feedback: '"He suspects nothing — yet the audience knows…plotted to murder him" is the gap between Duncan\'s knowledge and ours — the heart of dramatic irony.'
-    }
-  },
-  {
-    source: "From <em>The Necklace</em> — Guy de Maupassant (1884)",
-    lines: [
-      'Madame Loisel spent ten years in poverty to',
-      'replace what she believed was a priceless',
-      'diamond necklace. The reader learns at the',
-      "story's end — though Madame Loisel does not",
-      'know until the final line — that the original',
-      'necklace had always been a fake worth',
-      'almost nothing.'
-    ],
-    q1: {
-      question: "What literary device is present in this passage?",
-      options: ["Situational irony","Dramatic irony","Tragic flaw","Symbolism"],
-      correct: 1,
-      feedback: "The reader knows the necklace is fake long before Madame Loisel does — that gap in knowledge between the audience and a character is dramatic irony."
-    },
-    q2: {
-      options: [
-        '"Madame Loisel spent ten years in poverty"',
-        '"what she believed was a priceless diamond necklace"',
-        '"The reader learns…though Madame Loisel does not know"',
-        '"the original necklace had always been a fake"'
-      ],
-      correct: 2,
-      feedback: '"The reader learns…though Madame Loisel does not know" explicitly states the knowledge gap — the defining feature of dramatic irony.'
-    }
-  },
-  {
-    source: "From <em>Macbeth</em>, Act II, Scene ii — William Shakespeare",
-    lines: [
-      'After killing King Duncan, Macbeth stares at',
-      'his bloody hands: "Will all great Neptune\'s',
-      'ocean wash this blood / Clean from my hand?"',
-      'Later, Lady Macbeth furiously scrubs her',
-      'hands in her sleep, unable to remove a spot',
-      'no one else can see.'
-    ],
-    q1: {
-      question: "What literary device is central to this passage?",
-      options: ["Dramatic irony","Situational irony","Symbolism","Tragic flaw"],
-      correct: 2,
-      feedback: "Blood here is a symbol — it represents guilt that cannot be washed away. The recurring image of blood on hands carries meaning far beyond its literal sense."
-    },
-    q2: {
-      options: [
-        '"After killing King Duncan"',
-        '"Will all great Neptune\'s ocean wash this blood / Clean from my hand?"',
-        '"Lady Macbeth furiously scrubs her hands in her sleep"',
-        '"unable to remove a spot no one else can see"'
-      ],
-      correct: 1,
-      feedback: '"Will all great Neptune\'s ocean wash this blood clean?" transforms blood into a symbol of inescapable guilt — not even the ocean can cleanse it.'
-    }
-  },
-  {
-    source: "From <em>The Scarlet Letter</em> — Nathaniel Hawthorne (1850)",
-    lines: [
-      'Hester Prynne was forced to wear a scarlet',
-      'letter "A" on her chest as punishment for',
-      'adultery. Over time the letter transforms —',
-      'the townspeople begin to see it as standing',
-      'for "Able," recognizing her strength and',
-      'compassion rather than her sin.'
-    ],
-    q1: {
-      question: "What literary device is used in this passage?",
-      options: ["Tragic flaw","Situational irony","Dramatic irony","Symbolism"],
-      correct: 3,
-      feedback: "The scarlet letter is a symbol — an object that carries meaning far beyond itself. It shifts from representing shame to representing strength."
-    },
-    q2: {
-      options: [
-        '"Hester Prynne was forced to wear a scarlet letter"',
-        '"as punishment for adultery"',
-        '"the letter transforms — the townspeople begin to see it as standing for \'Able\'"',
-        '"recognizing her strength and compassion"'
-      ],
-      correct: 2,
-      feedback: '"the letter transforms — the townspeople begin to see it as standing for \'Able\'" shows the letter\'s symbolic power shifting to represent a new idea.'
-    }
-  }
-];
+// ════════════════════════════════════════════════════════════════════════════
+// PASSAGE DATA
+// ════════════════════════════════════════════════════════════════════════════
 
-// ── STATE ────────────────────────────────────────────────────────────────────
-let order = [];       // shuffled indices into ALL_PASSAGES
-let current = 0;      // index into order[]
-let score = 0;
-let answered = {};    // "orderPos-q" → chosen
+const PASSAGES = {
 
-// ── SHUFFLE ──────────────────────────────────────────────────────────────────
+  // ── STANDARD VERSION ────────────────────────────────────────────────────
+  standard: [
+    {
+      source: "From <em>Macbeth</em>, Act I, Scene vii — William Shakespeare",
+      lines: ['"I have no spur', 'To prick the sides of my intent, but only', 'Vaulting ambition, which o\'erleaps itself', 'And falls on th\' other side."'],
+      note: "In this soliloquy, Macbeth admits to himself that he has no good reason to murder King Duncan — only his own ambition drives him forward.",
+      q1: { question: "This passage is an example of which literary device?", options: ["Symbolism","Dramatic irony","Tragic flaw","Situational irony"], correct: 2, feedback: "Macbeth admits his only motivation is ambition — naming that internal weakness is the definition of a tragic flaw." },
+      q2: { options: ['"I have no spur / To prick the sides of my intent"', '"Vaulting ambition, which o\'erleaps itself / And falls on th\' other side"', '"but only"', '"And falls on th\' other side"'], correct: 1, feedback: '"Vaulting ambition…falls on th\' other side" names the fatal quality that destroys Macbeth — the heart of a tragic flaw.' }
+    },
+    {
+      source: "From <em>Romeo and Juliet</em>, Act III, Scene i — William Shakespeare",
+      lines: ['Romeo draws his sword and slays Tybalt in', 'the street — though moments before he had', 'begged for peace. His hot temper, the very', 'impulsiveness that makes him passionate,', 'now earns him banishment and sets in motion', 'the tragedy that follows.'],
+      q1: { question: "What literary device does this passage demonstrate?", options: ["Dramatic irony","Tragic flaw","Symbolism","Situational irony"], correct: 1, feedback: "Romeo's impulsiveness is his tragic flaw — the internal weakness that causes his ruin even when he tried to avoid violence." },
+      q2: { options: ['"Romeo draws his sword and slays Tybalt"', '"moments before he had begged for peace"', '"His hot temper, the very impulsiveness that makes him passionate"', '"earns him banishment"'], correct: 2, feedback: '"His hot temper, the very impulsiveness that makes him passionate" names Romeo\'s fatal internal quality — the definition of a tragic flaw.' }
+    },
+    {
+      source: "From <em>Macbeth</em>, Act V, Scene viii — William Shakespeare",
+      lines: ['Macbeth had believed the witches\' prophecy', 'made him invincible — no man born of woman', 'could harm him. He fought fearlessly, certain', 'of his safety. Yet Macduff revealed he was', '"from his mother\'s womb / Untimely ripped,"', 'and Macbeth fell.'],
+      q1: { question: "What literary device is at work in this passage?", options: ["Tragic flaw","Symbolism","Dramatic irony","Situational irony"], correct: 3, feedback: "Situational irony occurs when the opposite of what is expected happens. The prophecy that gave Macbeth false courage leads directly to his death." },
+      q2: { options: ['"Macbeth had believed the witches\' prophecy made him invincible"', '"He fought fearlessly, certain of his safety"', '"from his mother\'s womb / Untimely ripped"', '"Yet Macduff revealed…and Macbeth fell"'], correct: 3, feedback: '"Yet Macduff revealed…and Macbeth fell" captures the reversal — the prophecy meant to protect Macbeth destroys him instead.' }
+    },
+    {
+      source: "From <em>The Gift of the Magi</em> — O. Henry (1905)",
+      lines: ['Della sold her beautiful long hair to buy Jim', 'a chain for his pocket watch. Jim, meanwhile,', 'sold his watch to buy combs for Della\'s hair.', 'Each gave up their most prized possession to', 'give the other a gift — only to find the gift', 'now useless.'],
+      q1: { question: "What literary device does this passage use?", options: ["Symbolism","Tragic flaw","Situational irony","Dramatic irony"], correct: 2, feedback: "Both characters' loving sacrifices produce the opposite of what they intended — their gifts become useless. That's situational irony." },
+      q2: { options: ['"Della sold her beautiful long hair"', '"Jim, meanwhile, sold his watch"', '"Each gave up their most prized possession"', '"only to find the gift now useless"'], correct: 3, feedback: '"only to find the gift now useless" is where the irony lands — generous acts produced the opposite of a happy result.' }
+    },
+    {
+      source: "From <em>Macbeth</em>, Act I, Scene vi — William Shakespeare",
+      lines: ['King Duncan arrives at Macbeth\'s castle and', 'praises its pleasant setting: "This castle hath', 'a pleasant seat; the air / Nimbly and sweetly', 'recommends itself / Unto our gentle senses."', 'He suspects nothing — yet the audience knows', 'Macbeth and Lady Macbeth have already', 'plotted to murder him inside those very walls.'],
+      q1: { question: "What literary device is used in this passage?", options: ["Tragic flaw","Dramatic irony","Symbolism","Situational irony"], correct: 1, feedback: "Dramatic irony occurs when the audience knows something a character does not. We know of the murder plot; Duncan does not." },
+      q2: { options: ['"This castle hath a pleasant seat"', '"the air / Nimbly and sweetly recommends itself"', '"He suspects nothing — yet the audience knows Macbeth…plotted to murder him"', '"Unto our gentle senses"'], correct: 2, feedback: '"He suspects nothing — yet the audience knows…plotted to murder him" is the gap between Duncan\'s knowledge and ours — the heart of dramatic irony.' }
+    },
+    {
+      source: "From <em>The Necklace</em> — Guy de Maupassant (1884)",
+      lines: ['Madame Loisel spent ten years in poverty to', 'replace what she believed was a priceless', 'diamond necklace. The reader learns at the', "story's end — though Madame Loisel does not", 'know until the final line — that the original', 'necklace had always been a fake worth', 'almost nothing.'],
+      q1: { question: "What literary device is present in this passage?", options: ["Situational irony","Dramatic irony","Tragic flaw","Symbolism"], correct: 1, feedback: "The reader knows the necklace is fake long before Madame Loisel does — that gap in knowledge is dramatic irony." },
+      q2: { options: ['"Madame Loisel spent ten years in poverty"', '"what she believed was a priceless diamond necklace"', '"The reader learns…though Madame Loisel does not know"', '"the original necklace had always been a fake"'], correct: 2, feedback: '"The reader learns…though Madame Loisel does not know" explicitly states the knowledge gap — the defining feature of dramatic irony.' }
+    },
+    {
+      source: "From <em>Macbeth</em>, Act II, Scene ii — William Shakespeare",
+      lines: ['After killing King Duncan, Macbeth stares at', 'his bloody hands: "Will all great Neptune\'s', 'ocean wash this blood / Clean from my hand?"', 'Later, Lady Macbeth furiously scrubs her', 'hands in her sleep, unable to remove a spot', 'no one else can see.'],
+      q1: { question: "What literary device is central to this passage?", options: ["Dramatic irony","Situational irony","Symbolism","Tragic flaw"], correct: 2, feedback: "Blood here is a symbol — it represents guilt that cannot be washed away. The recurring image carries meaning far beyond its literal sense." },
+      q2: { options: ['"After killing King Duncan"', '"Will all great Neptune\'s ocean wash this blood / Clean from my hand?"', '"Lady Macbeth furiously scrubs her hands in her sleep"', '"unable to remove a spot no one else can see"'], correct: 1, feedback: '"Will all great Neptune\'s ocean wash this blood clean?" transforms blood into a symbol of inescapable guilt — not even the ocean can cleanse it.' }
+    },
+    {
+      source: "From <em>The Scarlet Letter</em> — Nathaniel Hawthorne (1850)",
+      lines: ['Hester Prynne was forced to wear a scarlet', 'letter "A" on her chest as punishment for', 'adultery. Over time the letter transforms —', 'the townspeople begin to see it as standing', 'for "Able," recognizing her strength and', 'compassion rather than her sin.'],
+      q1: { question: "What literary device is used in this passage?", options: ["Tragic flaw","Situational irony","Dramatic irony","Symbolism"], correct: 3, feedback: "The scarlet letter is a symbol — an object that carries meaning beyond itself. It shifts from representing shame to representing strength." },
+      q2: { options: ['"Hester Prynne was forced to wear a scarlet letter"', '"as punishment for adultery"', '"the letter transforms — the townspeople begin to see it as standing for \'Able\'"', '"recognizing her strength and compassion"'], correct: 2, feedback: '"the letter transforms — the townspeople begin to see it as standing for \'Able\'" shows the letter\'s symbolic power shifting to a new meaning.' }
+    }
+  ],
+
+  // ── EL VERSION ──────────────────────────────────────────────────────────
+  el: [
+    {
+      source: "From <em>Macbeth</em> — William Shakespeare (simplified)",
+      lines: ['Macbeth talks to himself. He says he has', 'no good reason to kill the king.', 'The only thing pushing him forward', 'is his own desire for power.', 'He wants to be king so badly', 'that he cannot stop himself.'],
+      note: "Macbeth knows killing the king is wrong. But his hunger for power is too strong.",
+      q1: { question: "This passage shows which literary device?", options: ["Symbolism","Dramatic irony","Tragic flaw","Situational irony"], correct: 2, feedback: "A tragic flaw is a weakness inside a character that causes their downfall. Macbeth's flaw is his desire for power — it destroys him." },
+      q2: { options: ['"He says he has no good reason to kill the king"', '"The only thing pushing him forward is his own desire for power"', '"He wants to be king"', '"Macbeth talks to himself"'], correct: 1, feedback: '"The only thing pushing him forward is his own desire for power" names Macbeth\'s weakness — his tragic flaw.' }
+    },
+    {
+      source: "From <em>Romeo and Juliet</em> — William Shakespeare (simplified)",
+      lines: ['Romeo tried to stop the fight.', 'He did not want anyone to get hurt.', 'But when his friend was killed,', 'Romeo got very angry.', 'He could not control his temper.', 'He attacked and was sent away forever.'],
+      q1: { question: "What literary device does this passage show?", options: ["Dramatic irony","Tragic flaw","Symbolism","Situational irony"], correct: 1, feedback: "Romeo's temper is his tragic flaw. Even when he tried to do the right thing, his anger took over and ruined his life." },
+      q2: { options: ['"Romeo tried to stop the fight"', '"his friend was killed"', '"He could not control his temper"', '"He attacked and was sent away forever"'], correct: 2, feedback: '"He could not control his temper" shows Romeo\'s tragic flaw — the weakness that causes his downfall.' }
+    },
+    {
+      source: "From <em>Macbeth</em> — William Shakespeare (simplified)",
+      lines: ['Three witches told Macbeth he was safe.', 'They said no man born from a woman could hurt him.', 'Macbeth felt he could not lose.', 'He was not afraid of anyone.', 'But one man had not been born the normal way.', 'That man killed Macbeth.'],
+      q1: { question: "What literary device is used in this passage?", options: ["Tragic flaw","Symbolism","Dramatic irony","Situational irony"], correct: 3, feedback: "Situational irony is when the opposite of what you expect happens. Macbeth expected the witches to keep him safe. Instead, their words led to his death." },
+      q2: { options: ['"Three witches told Macbeth he was safe"', '"Macbeth felt he could not lose"', '"But one man had not been born the normal way"', '"That man killed Macbeth"'], correct: 3, feedback: '"That man killed Macbeth" shows the irony — the prophecy that made him feel safe caused him to lower his guard and die.' }
+    },
+    {
+      source: "From <em>The Gift of the Magi</em> — O. Henry (simplified)",
+      lines: ['A woman cut off her long hair and sold it.', 'She used the money to buy her husband a gift.', 'Her husband had sold his watch to buy her a gift.', 'When they opened their gifts,', 'each gift was useless.', 'Her gift was for the watch. His gift was for the hair.'],
+      q1: { question: "What literary device does this passage use?", options: ["Symbolism","Tragic flaw","Situational irony","Dramatic irony"], correct: 2, feedback: "Situational irony is when something unexpected happens. Both people tried to do something kind — but each gift became useless because of what the other person gave up." },
+      q2: { options: ['"A woman cut off her long hair and sold it"', '"Her husband had sold his watch to buy her a gift"', '"each gift was useless"', '"Her gift was for the watch. His gift was for the hair."'], correct: 2, feedback: '"each gift was useless" shows the irony — their kind acts had the opposite result of what they planned.' }
+    },
+    {
+      source: "From <em>Macbeth</em> — William Shakespeare (simplified)",
+      lines: ['The king came to visit Macbeth\'s home.', 'He said it was a beautiful and peaceful place.', 'He felt safe and happy there.', 'But the audience already knows the truth —', 'Macbeth and his wife planned to kill the king', 'that very night.'],
+      q1: { question: "What literary device is used in this passage?", options: ["Tragic flaw","Dramatic irony","Symbolism","Situational irony"], correct: 1, feedback: "Dramatic irony is when the audience knows something a character does not. The king thinks he is safe. The audience knows he is about to be murdered." },
+      q2: { options: ['"The king came to visit Macbeth\'s home"', '"He felt safe and happy there"', '"But the audience already knows the truth"', '"Macbeth and his wife planned to kill the king that very night"'], correct: 2, feedback: '"But the audience already knows the truth" is where the dramatic irony is stated — the audience has information the king does not.' }
+    },
+    {
+      source: "From <em>The Necklace</em> — Guy de Maupassant (simplified)",
+      lines: ['A woman lost a necklace that was not hers.', 'She spent ten years working very hard to pay for it.', 'Her life became much harder because of the necklace.', 'At the end, she found out the truth —', 'the necklace was fake.', 'It was almost worthless.'],
+      q1: { question: "What literary device is present in this passage?", options: ["Situational irony","Dramatic irony","Tragic flaw","Symbolism"], correct: 1, feedback: "Dramatic irony is when the reader knows something the character does not. The reader finds out the necklace is fake. The woman does not know until the very end." },
+      q2: { options: ['"A woman lost a necklace that was not hers"', '"She spent ten years working very hard"', '"At the end, she found out the truth"', '"the necklace was fake. It was almost worthless."'], correct: 2, feedback: '"At the end, she found out the truth" shows dramatic irony — the reader learns the truth before (or at the same moment as) the character.' }
+    },
+    {
+      source: "From <em>Macbeth</em> — William Shakespeare (simplified)",
+      lines: ['After Macbeth killed the king,', 'he looked at his bloody hands.', 'He asked if all the water in the ocean', 'could wash away the blood.', 'Later, Lady Macbeth rubbed her hands', 'while she slept — trying to clean a spot only she could see.'],
+      q1: { question: "What literary device is central to this passage?", options: ["Dramatic irony","Situational irony","Symbolism","Tragic flaw"], correct: 2, feedback: "The blood on their hands is a symbol. It does not just mean real blood — it stands for the guilt they feel inside. They cannot wash it away because guilt cannot be washed away." },
+      q2: { options: ['"After Macbeth killed the king"', '"he looked at his bloody hands"', '"Could wash away the blood"', '"trying to clean a spot only she could see"'], correct: 3, feedback: '"trying to clean a spot only she could see" shows that the blood is a symbol of guilt — it is not real blood anymore, it is the guilt she carries.' }
+    },
+    {
+      source: "From <em>The Scarlet Letter</em> — Nathaniel Hawthorne (simplified)",
+      lines: ['A woman had to wear a red letter "A" on her clothes.', 'It was meant to show that she had done something wrong.', 'People were supposed to feel ashamed when they saw it.', 'Over time, people changed their minds.', 'They started to see the letter as a sign of her courage.', 'The letter now meant something different.'],
+      q1: { question: "What literary device is used in this passage?", options: ["Tragic flaw","Situational irony","Dramatic irony","Symbolism"], correct: 3, feedback: "The red letter is a symbol. A symbol is an object that stands for a bigger idea. At first, the letter stood for shame. Over time, it stood for courage." },
+      q2: { options: ['"A woman had to wear a red letter \'A\' on her clothes"', '"People were supposed to feel ashamed when they saw it"', '"The letter now meant something different"', '"They started to see the letter as a sign of her courage"'], correct: 3, feedback: '"They started to see the letter as a sign of her courage" shows the letter working as a symbol — it represents an idea, not just a letter of the alphabet.' }
+    }
+  ]
+};
+
+// ════════════════════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════════════════════
+let currentVersion = 'standard';
+let order = [];
+let current = 0;
+let score = 0;          // out of 16 (can include halves)
+let firstCorrect = 0;   // questions correct on first try
+let secondCorrect = 0;  // questions correct on second try
+
+// Per question: { tries: 0|1|2, firstWrong: optionIndex|null, done: bool }
+let qState = {};
+
+// ════════════════════════════════════════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════════════════════════════════════════
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -493,13 +515,25 @@ function shuffle(arr) {
   return a;
 }
 
-// ── BUILD HTML FOR ONE PASSAGE ───────────────────────────────────────────────
-function buildPassageHTML(orderPos) {
-  const p = ALL_PASSAGES[order[orderPos]];
-  const qNum1 = orderPos * 2 + 1;
-  const qNum2 = orderPos * 2 + 2;
-  const qLetters1 = ['A','B','C','D'];
-  const qLetters2 = ['F','G','H','J'];
+function getPassage(pos) {
+  return PASSAGES[currentVersion][order[pos]];
+}
+
+function getQState(pos, q) {
+  const key = `${pos}-${q}`;
+  if (!qState[key]) qState[key] = { tries: 0, firstWrong: null, done: false };
+  return qState[key];
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// BUILD PASSAGE HTML
+// ════════════════════════════════════════════════════════════════════════════
+function buildPassageHTML(pos) {
+  const p = getPassage(pos);
+  const qNum1 = pos * 2 + 1;
+  const qNum2 = pos * 2 + 2;
+  const L1 = ['A','B','C','D'];
+  const L2 = ['F','G','H','J'];
 
   const linesHTML = p.lines.map((line, i) =>
     `<p><span class="line-num">${i+1}</span>${line}</p>`
@@ -509,26 +543,19 @@ function buildPassageHTML(orderPos) {
     ? `<p style="margin-top:16px;font-size:12px;font-style:italic;color:#555;line-height:1.5;font-family:Arial,sans-serif">${p.note}</p>`
     : '';
 
-  const opts1 = p.q1.options.map((opt, i) =>
-    `<div class="opt-row"><button onclick="answer(${orderPos},0,${i})" id="btn-${orderPos}-0-${i}">
-      <span class="opt-bubble plain" id="bub-${orderPos}-0-${i}">${qLetters1[i]}</span>
-      <span class="opt-text" id="txt-${orderPos}-0-${i}">${opt}</span>
-    </button></div>`
-  ).join('');
-
-  const opts2 = p.q2.options.map((opt, i) =>
-    `<div class="opt-row"><button onclick="answer(${orderPos},1,${i})" id="btn-${orderPos}-1-${i}">
-      <span class="opt-bubble plain" id="bub-${orderPos}-1-${i}">${qLetters2[i]}</span>
-      <span class="opt-text" id="txt-${orderPos}-1-${i}">${opt}</span>
+  const makeOpts = (qIdx, opts, letters) => opts.map((opt, i) =>
+    `<div class="opt-row"><button onclick="answer(${pos},${qIdx},${i})" id="btn-${pos}-${qIdx}-${i}">
+      <span class="opt-bubble plain" id="bub-${pos}-${qIdx}-${i}">${letters[i]}</span>
+      <span class="opt-text" id="txt-${pos}-${qIdx}-${i}">${opt}</span>
     </button></div>`
   ).join('');
 
   return `
-  <div class="passage-block${orderPos === 0 ? ' active' : ''}" data-pos="${orderPos}">
+  <div class="passage-block${pos === 0 ? ' active' : ''}${currentVersion === 'el' ? ' el-mode' : ''}" data-pos="${pos}">
     <div class="two-col">
       <div class="passage-col">
         <div class="passage-col-header">
-          <div class="passage-col-header-left">Passage ${orderPos + 1}</div>
+          <div class="passage-col-header-left">Passage ${pos + 1}</div>
         </div>
         <div class="passage-source-line">${p.source}</div>
         <div class="passage-text">${linesHTML}${noteHTML}</div>
@@ -545,8 +572,8 @@ function buildPassageHTML(orderPos) {
               <span class="q-type-label identify">Identify the Device</span>
             </div>
             <div class="q-text">${p.q1.question}</div>
-            <div class="options-list">${opts1}</div>
-            <div class="feedback-box" id="fb-${orderPos}-0"></div>
+            <div class="options-list">${makeOpts(0, p.q1.options, L1)}</div>
+            <div class="feedback-box" id="fb-${pos}-0"></div>
           </div>
           <hr class="q-divider">
           <div class="q-item">
@@ -555,8 +582,8 @@ function buildPassageHTML(orderPos) {
               <span class="q-type-label locate">Locate the Evidence</span>
             </div>
             <div class="q-text">Which phrase from the passage best identifies your answer to Question ${qNum1}?</div>
-            <div class="options-list">${opts2}</div>
-            <div class="feedback-box" id="fb-${orderPos}-1"></div>
+            <div class="options-list">${makeOpts(1, p.q2.options, L2)}</div>
+            <div class="feedback-box" id="fb-${pos}-1"></div>
           </div>
         </div>
       </div>
@@ -564,46 +591,115 @@ function buildPassageHTML(orderPos) {
   </div>`;
 }
 
-// ── RENDER ALL PASSAGES ───────────────────────────────────────────────────────
-function renderPassages() {
-  const container = document.getElementById('test-page');
-  container.innerHTML = order.map((_, pos) => buildPassageHTML(pos)).join('');
-}
-
-// ── ANSWER ────────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════════════════════
+// ANSWER HANDLER — supports 2 tries with half-point scoring
+// ════════════════════════════════════════════════════════════════════════════
 function answer(pos, q, chosen) {
-  const key = `${pos}-${q}`;
-  if (answered[key] !== undefined) return;
-  answered[key] = chosen;
+  const qs = getQState(pos, q);
+  if (qs.done) return;
 
-  const p = ALL_PASSAGES[order[pos]];
-  const correct = q === 0 ? p.q1.correct : p.q2.correct;
-  const feedback = q === 0 ? p.q1.feedback : p.q2.feedback;
+  const p = getPassage(pos);
+  const correctIdx = q === 0 ? p.q1.correct : p.q2.correct;
+  const feedback   = q === 0 ? p.q1.feedback : p.q2.feedback;
+  const L = q === 0 ? ['A','B','C','D'] : ['F','G','H','J'];
 
-  if (chosen === correct) score++;
-  document.getElementById('score-display').textContent = score;
-
-  for (let i = 0; i < 4; i++) {
-    const bub = document.getElementById(`bub-${pos}-${q}-${i}`);
-    const txt = document.getElementById(`txt-${pos}-${q}-${i}`);
-    const btn = document.getElementById(`btn-${pos}-${q}-${i}`);
-    if (!bub) continue;
-    btn.disabled = true;
-    bub.classList.remove('plain');
-    if (i === correct) { bub.classList.add('correct'); txt.className = 'opt-text correct-text'; }
-    else if (i === chosen) { bub.classList.add('wrong'); txt.className = 'opt-text wrong-text'; }
-  }
+  qs.tries++;
 
   const fb = document.getElementById(`fb-${pos}-${q}`);
-  const ok = chosen === correct;
-  fb.className = `feedback-box ${ok ? 'correct' : 'wrong'} show`;
-  fb.textContent = ok ? feedback : `Not quite. ${feedback}`;
-  updateDots();
+  const bub = (i) => document.getElementById(`bub-${pos}-${q}-${i}`);
+  const txt = (i) => document.getElementById(`txt-${pos}-${q}-${i}`);
+  const btn = (i) => document.getElementById(`btn-${pos}-${q}-${i}`);
+
+  if (chosen === correctIdx) {
+    // ── CORRECT ──
+    qs.done = true;
+
+    if (qs.tries === 1) {
+      // First try correct: 1 full point
+      score += 1;
+      firstCorrect += 1;
+      fb.className = 'feedback-box correct show';
+      fb.innerHTML = `✓ Correct! <span class="point-flash full">+1 point</span><br><span style="font-size:10.5px;opacity:0.85">${feedback}</span>`;
+    } else {
+      // Second try correct: 0.5 point
+      score += 0.5;
+      secondCorrect += 0.5;
+      // Mark first wrong choice as orange
+      if (qs.firstWrong !== null) {
+        bub(qs.firstWrong).classList.remove('plain');
+        bub(qs.firstWrong).classList.add('retry-wrong');
+        txt(qs.firstWrong).className = 'opt-text wrong-text';
+      }
+      fb.className = 'feedback-box correct-2nd show';
+      fb.innerHTML = `✓ Correct on second try. <span class="point-flash half">+½ point</span><br><span style="font-size:10.5px;opacity:0.85">${feedback}</span>`;
+    }
+
+    // Mark correct bubble green
+    bub(chosen).classList.remove('plain');
+    bub(chosen).classList.add('correct');
+    txt(chosen).className = 'opt-text correct-text';
+
+    // Disable all buttons
+    for (let i = 0; i < 4; i++) btn(i).disabled = true;
+
+    document.getElementById('score-display').textContent = formatScore(score);
+    updateDots();
+
+  } else {
+    // ── WRONG ──
+    if (qs.tries === 1) {
+      // First wrong: ask to try again
+      qs.firstWrong = chosen;
+      bub(chosen).classList.remove('plain');
+      bub(chosen).classList.add('wrong');
+      txt(chosen).className = 'opt-text wrong-text';
+      btn(chosen).disabled = true;
+
+      fb.className = 'feedback-box try-again show';
+      fb.innerHTML = `✗ Not quite — try again! You have one more attempt.`;
+
+    } else {
+      // Second wrong: done, 0 points, reveal answer
+      qs.done = true;
+      if (qs.firstWrong !== null) {
+        bub(qs.firstWrong).classList.remove('plain');
+        bub(qs.firstWrong).classList.add('retry-wrong');
+        txt(qs.firstWrong).className = 'opt-text wrong-text';
+      }
+      bub(chosen).classList.remove('plain');
+      bub(chosen).classList.add('wrong');
+      txt(chosen).className = 'opt-text wrong-text';
+
+      // Reveal correct
+      bub(correctIdx).classList.remove('plain');
+      bub(correctIdx).classList.add('correct');
+      txt(correctIdx).className = 'opt-text correct-text';
+
+      // Disable all
+      for (let i = 0; i < 4; i++) btn(i).disabled = true;
+
+      fb.className = 'feedback-box wrong show';
+      fb.innerHTML = `✗ The correct answer was <strong>${L[correctIdx]}</strong>. &nbsp;<span style="font-size:10.5px">${feedback}</span>`;
+
+      updateDots();
+    }
+  }
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────────────────────
-function isDone(pos) {
-  return answered[`${pos}-0`] !== undefined && answered[`${pos}-1`] !== undefined;
+function formatScore(s) {
+  // Show as decimal only if needed
+  return Number.isInteger(s) ? s : s.toFixed(1);
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════════════════════════════════════
+function isPassageDone(pos) {
+  return getQState(pos, 0).done && getQState(pos, 1).done;
+}
+
+function isPassagePartial(pos) {
+  return (getQState(pos, 0).done || getQState(pos, 1).done) && !isPassageDone(pos);
 }
 
 function updateDots() {
@@ -611,7 +707,11 @@ function updateDots() {
   dots.innerHTML = '';
   for (let i = 0; i < 8; i++) {
     const d = document.createElement('div');
-    d.className = 'pdot' + (i === current ? ' current' : isDone(i) ? ' done' : '');
+    let cls = 'pdot';
+    if (i === current) cls += ' current';
+    else if (isPassageDone(i)) cls += ' done-full';
+    else if (isPassagePartial(i)) cls += ' done-partial';
+    d.className = cls;
     d.onclick = (idx => () => goTo(idx))(i);
     d.title = `Passage ${i + 1}`;
     dots.appendChild(d);
@@ -635,42 +735,78 @@ function navigate(dir) {
   goTo(Math.max(0, Math.min(7, current + dir)));
 }
 
-// ── RESULTS ───────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════════════════════
+// RESULTS
+// ════════════════════════════════════════════════════════════════════════════
 function showResults() {
-  document.getElementById('test-page').style.display = 'none';
-  document.getElementById('nav-strip').style.display = 'none';
-  document.querySelector('.passage-section-header').style.display = 'none';
+  document.getElementById('test-ui').style.display = 'none';
   document.getElementById('results-page').style.display = 'block';
-  document.getElementById('final-score-num').textContent = score;
-  const pct = Math.round((score / 16) * 100);
+
+  const displayScore = formatScore(score);
+  document.getElementById('final-score-num').textContent = displayScore;
+  document.getElementById('res-first').textContent = formatScore(firstCorrect);
+  document.getElementById('res-second').textContent = formatScore(secondCorrect);
+
+  const pct = (score / 16) * 100;
   setTimeout(() => { document.getElementById('results-bar').style.width = pct + '%'; }, 100);
+
   document.getElementById('results-message').textContent =
     pct >= 88 ? 'Outstanding! You have a strong grasp of all four devices. You\'re ready to write your essay.' :
     pct >= 63 ? 'Good work! Review the passages you missed before writing your essay.' :
     'Keep practicing — re-read the passages and try again to strengthen your understanding.';
+
   window.scrollTo(0, 0);
 }
 
-// ── RESTART ───────────────────────────────────────────────────────────────────
-function restartTest() {
-  current = 0; score = 0; answered = {};
-  document.getElementById('score-display').textContent = 0;
-  document.getElementById('test-page').style.display = 'block';
-  document.getElementById('nav-strip').style.display = 'flex';
-  document.querySelector('.passage-section-header').style.display = 'block';
+// ════════════════════════════════════════════════════════════════════════════
+// START / RESTART / SWITCH
+// ════════════════════════════════════════════════════════════════════════════
+function startTest(version) {
+  currentVersion = version;
+  document.getElementById('version-screen').style.display = 'none';
   document.getElementById('results-page').style.display = 'none';
-  document.getElementById('results-bar').style.width = '0%';
-  init();
-}
+  document.getElementById('test-ui').style.display = 'block';
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
-function init() {
-  order = shuffle([0,1,2,3,4,5,6,7]);
+  const badge = document.getElementById('version-badge');
+  if (version === 'el') {
+    badge.textContent = 'EL Version';
+    badge.className = 'version-badge el';
+  } else {
+    badge.textContent = 'Standard';
+    badge.className = 'version-badge standard';
+  }
+
+  resetState();
   renderPassages();
   goTo(0);
 }
 
-init();
+function resetState() {
+  current = 0; score = 0; firstCorrect = 0; secondCorrect = 0; qState = {};
+  document.getElementById('score-display').textContent = '0';
+  document.getElementById('results-bar').style.width = '0%';
+}
+
+function restartTest() {
+  document.getElementById('results-page').style.display = 'none';
+  document.getElementById('test-ui').style.display = 'block';
+  resetState();
+  renderPassages();
+  goTo(0);
+}
+
+function switchVersion() {
+  document.getElementById('results-page').style.display = 'none';
+  document.getElementById('test-ui').style.display = 'none';
+  document.getElementById('version-screen').style.display = 'flex';
+}
+
+function renderPassages() {
+  order = shuffle([0,1,2,3,4,5,6,7]);
+  const container = document.getElementById('test-page');
+  container.innerHTML = order.map((_, pos) => buildPassageHTML(pos)).join('');
+}
+
 </script>
 </body>
 </html>
