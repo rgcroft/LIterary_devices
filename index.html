@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACT Literary Devices Practice Test</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #e8e8e8;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #000;
+  }
+
+  .test-header { background: #1a1a2e; color: white; }
+  .test-header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 10px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .act-logo { font-family: Arial, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 3px; color: #ff6b35; }
+  .test-title { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; }
+  .score-box { font-family: Arial, sans-serif; font-size: 13px; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 3px; }
+  .score-box span { font-weight: 700; font-size: 16px; color: #ff6b35; }
+
+  .directions-bar { background: #f0f0f0; border-bottom: 2px solid #333; padding: 8px 0; }
+  .directions-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif; font-size: 11px; color: #333; }
+
+  .prompt-banner { background: #1a3a5c; color: white; padding: 10px 0; }
+  .prompt-banner-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif; }
+  .prompt-banner-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+  .prompt-banner-text { font-size: 12px; font-style: italic; line-height: 1.5; }
+  .prompt-banner-devices { display: flex; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
+  .device-tag { background: rgba(255,255,255,0.15); font-size: 10px; padding: 2px 8px; border-radius: 2px; font-style: normal; letter-spacing: 0.5px; }
+
+  .passage-section-header { max-width: 1100px; margin: 16px auto 0; padding: 0 20px; }
+  .passage-section-header h2 { font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 3px solid #000; padding-bottom: 4px; margin-bottom: 2px; }
+  .passage-section-sub { font-family: Arial, sans-serif; font-size: 10px; color: #555; margin-bottom: 10px; }
+
+  .test-page { max-width: 1100px; margin: 0 auto; padding: 0 20px 30px; }
+
+  .passage-block { display: none; }
+  .passage-block.active { display: block; }
+
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    background: white; border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .passage-col { border-right: 1px solid #999; }
+  .passage-col-header {
+    background: #1a1a2e; color: white; padding: 8px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .passage-col-header-left { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; }
+  .passage-source-line { font-family: Arial, sans-serif; font-size: 10px; color: #555; font-style: italic; padding: 6px 16px; border-bottom: 1px solid #ddd; background: #fafafa; }
+  .passage-text { padding: 16px 18px; font-size: 14.5px; line-height: 2; }
+  .passage-text p { margin-bottom: 10px; }
+  .passage-text p:last-child { margin-bottom: 0; }
+  .line-num { display: inline-block; width: 28px; font-size: 10px; font-family: Arial, sans-serif; color: #888; user-select: none; vertical-align: top; padding-top: 3px; }
+
+  .questions-col {}
+  .questions-col-header {
+    background: #2d4a6b; color: white; padding: 8px 16px;
+    font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .q-range-badge { font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 2px; }
+
+  .questions-list { padding: 14px 16px; display: flex; flex-direction: column; gap: 20px; }
+
+  .q-number-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .q-circle {
+    min-width: 22px; height: 22px; border-radius: 50%; background: #1a1a2e; color: white;
+    font-family: Arial, sans-serif; font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-type-label {
+    font-family: Arial, sans-serif; font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; margin-top: 4px;
+  }
+  .q-type-label.identify { background: #ffe0d6; color: #8b2e00; }
+  .q-type-label.locate   { background: #d6e8ff; color: #00358b; }
+
+  .q-text { font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; padding-left: 30px; }
+
+  .options-list { display: flex; flex-direction: column; gap: 5px; padding-left: 14px; }
+  .opt-row button {
+    background: none; border: none; padding: 0; cursor: pointer;
+    display: flex; align-items: flex-start; width: 100%; text-align: left;
+  }
+  .opt-row button:hover .opt-bubble.plain { background: #e8f0fe; border-color: #2b5f8e; }
+  .opt-row button:disabled { cursor: default; }
+
+  .opt-bubble {
+    min-width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #555;
+    display: flex; align-items: center; justify-content: center;
+    font-family: Arial, sans-serif; font-size: 10px; font-weight: 700;
+    flex-shrink: 0; margin-top: 2px; margin-right: 8px; color: #333; transition: all 0.1s;
+  }
+  .opt-bubble.correct { background: #2d6a4f !important; color: white !important; border-color: #2d6a4f !important; }
+  .opt-bubble.wrong   { background: #8b2e2e !important; color: white !important; border-color: #8b2e2e !important; }
+
+  .opt-text { font-family: 'Times New Roman', Times, serif; font-size: 13px; line-height: 1.45; color: #000; padding-top: 2px; }
+  .opt-text.correct-text { color: #2d6a4f; font-weight: 700; }
+  .opt-text.wrong-text   { color: #8b2e2e; }
+
+  .feedback-box {
+    display: none; margin-top: 10px; margin-left: 14px; padding: 8px 12px;
+    font-family: Arial, sans-serif; font-size: 11px; line-height: 1.5; border-radius: 2px;
+  }
+  .feedback-box.show { display: block; }
+  .feedback-box.correct { background: #e8f5ee; border-left: 3px solid #2d6a4f; color: #1a4a33; }
+  .feedback-box.wrong   { background: #faeaea; border-left: 3px solid #8b2e2e; color: #5a1a1a; }
+
+  .q-divider { border: none; border-top: 1px solid #e0e0e0; }
+
+  .nav-strip {
+    max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: white; border: 1px solid #999; border-top: none; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .passage-dots { display: flex; gap: 6px; align-items: center; }
+  .pdot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #999; background: white; cursor: pointer; transition: all 0.15s; }
+  .pdot.done { background: #2d6a4f; border-color: #2d6a4f; }
+  .pdot.current { background: #1a1a2e; border-color: #1a1a2e; }
+  .pdot-label { font-family: Arial, sans-serif; font-size: 10px; color: #555; margin-right: 4px; }
+
+  .nav-btns { display: flex; gap: 8px; }
+  .btn { font-family: Arial, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; padding: 7px 18px; border: none; cursor: pointer; transition: all 0.15s; }
+  .btn-prev { background: #e0e0e0; color: #333; }
+  .btn-prev:hover:not(:disabled) { background: #ccc; }
+  .btn-next { background: #1a1a2e; color: white; }
+  .btn-next:hover:not(:disabled) { background: #2d4a6b; }
+  .btn:disabled { opacity: 0.35; cursor: default; }
+
+  /* RESULTS */
+  #results-page { display: none; max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }
+  .results-card { background: white; border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .results-top { background: #1a1a2e; color: white; padding: 24px 32px; display: flex; align-items: center; gap: 32px; }
+  .results-score-big { font-family: Arial, sans-serif; font-size: 56px; font-weight: 700; color: #ff6b35; line-height: 1; }
+  .results-score-denom { font-family: Arial, sans-serif; font-size: 18px; color: rgba(255,255,255,0.5); }
+  .results-right h2 { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .results-right p { font-family: Arial, sans-serif; font-size: 13px; opacity: 0.8; line-height: 1.5; }
+  .results-body { padding: 28px 32px; }
+
+  .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .device-def-card { border: 1px solid #ddd; padding: 14px; }
+  .device-def-name { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a1a2e; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .device-def-name::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2d4a6b; flex-shrink: 0; }
+  .device-def-text { font-size: 12.5px; line-height: 1.55; color: #333; }
+
+  .essay-box { background: #f5f8fc; border: 1px solid #b8cfe0; padding: 18px 20px; margin-bottom: 20px; }
+  .essay-box-label { font-family: Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #1a3a5c; margin-bottom: 8px; }
+  .essay-box p { font-size: 13.5px; line-height: 1.7; margin-bottom: 6px; }
+  .essay-box ul { padding-left: 20px; margin-top: 8px; }
+  .essay-box ul li { font-size: 13.5px; line-height: 1.9; }
+
+  .retry-btn { font-family: Arial, sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 10px 28px; background: #1a1a2e; color: white; border: none; cursor: pointer; }
+  .retry-btn:hover { background: #2d4a6b; }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .passage-col { border-right: none; border-bottom: 1px solid #999; }
+    .device-grid { grid-template-columns: 1fr; }
+    .results-top { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="test-header">
+  <div class="test-header-inner">
+    <div class="act-logo">ACT</div>
+    <div class="test-title">English Practice — Literary Devices</div>
+    <div class="score-box">Score: <span id="score-display">0</span> / <span id="total-display">16</span></div>
+  </div>
+</div>
+
+<div class="directions-bar">
+  <div class="directions-inner">
+    <strong>DIRECTIONS:</strong> In the following test, each passage is followed by several questions. After reading each passage, choose the best answer to each question. You may refer to the passages as often as necessary.
+  </div>
+</div>
+
+<div class="prompt-banner">
+  <div class="prompt-banner-inner">
+    <div class="prompt-banner-label">Writing Prompt — Use these passages to prepare your essay</div>
+    <div class="prompt-banner-text">What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>? Choose one device to build your argument:</div>
+    <div class="prompt-banner-devices">
+      <span class="device-tag">Tragic Flaw</span>
+      <span class="device-tag">Situational Irony</span>
+      <span class="device-tag">Dramatic Irony</span>
+      <span class="device-tag">Symbolism</span>
+    </div>
+  </div>
+</div>
+
+<div class="passage-section-header">
+  <h2>Passage Section</h2>
+  <div class="passage-section-sub" id="section-sub">Passage 1 of 8</div>
+</div>
+
+<div class="test-page" id="test-page">
+  <!-- passages rendered by JS -->
+</div>
+
+<div class="nav-strip" id="nav-strip">
+  <div style="display:flex;align-items:center;gap:8px">
+    <span class="pdot-label">Passages:</span>
+    <div class="passage-dots" id="passage-dots"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-prev" id="prev-btn" onclick="navigate(-1)" disabled>&#9664; Back</button>
+    <button class="btn btn-next" id="next-btn" onclick="navigate(1)">Next &#9654;</button>
+  </div>
+</div>
+
+<div id="results-page">
+  <div class="results-card">
+    <div class="results-top">
+      <div>
+        <div style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.6;margin-bottom:6px">Final Score</div>
+        <div class="results-score-big" id="final-score-num">0</div>
+        <div class="results-score-denom">out of 16</div>
+      </div>
+      <div class="results-right">
+        <h2>Practice Test Complete</h2>
+        <p id="results-message"></p>
+        <div style="margin-top:14px;height:6px;background:rgba(255,255,255,0.15);border-radius:3px;width:300px;max-width:100%;overflow:hidden">
+          <div id="results-bar" style="height:100%;background:#ff6b35;border-radius:3px;transition:width 0.6s ease;width:0%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="results-body">
+      <h3 style="font-family:Arial,sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;color:#333">Literary Device Definitions</h3>
+      <div class="device-grid">
+        <div class="device-def-card"><div class="device-def-name">Tragic Flaw</div><div class="device-def-text">An internal weakness in a character that leads to their downfall. Macbeth's ambition drives him to murder and ruin.</div></div>
+        <div class="device-def-card"><div class="device-def-name">Situational Irony</div><div class="device-def-text">When what happens is the opposite of what was expected. The witches' "safe" prophecies bring about Macbeth's destruction.</div></div>
+        <div class="device-def-card"><div class="device-def-name">Dramatic Irony</div><div class="device-def-text">When the audience knows something a character does not. We know Duncan trusts his own killer.</div></div>
+        <div class="device-def-card"><div class="device-def-name">Symbolism</div><div class="device-def-text">An object or image that represents a larger idea. Blood in <em>Macbeth</em> symbolizes guilt that cannot be washed away.</div></div>
+      </div>
+      <div class="essay-box">
+        <div class="essay-box-label">Your Essay Writing Prompt</div>
+        <p>Write an argument in the form of a response to literature that answers:</p>
+        <p><strong>What is the most effective literary device the author uses to show fear and characters' responses to fear in <em>Macbeth</em>?</strong></p>
+        <p>Choose one of the literary devices below to build your argument:</p>
+        <ul>
+          <li>Tragic flaw</li><li>Situational irony</li><li>Dramatic irony</li><li>Symbolism</li>
+        </ul>
+      </div>
+      <button class="retry-btn" onclick="restartTest()">&#8635; Retake Test</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── ALL PASSAGE DATA ──────────────────────────────────────────────────────────
+const ALL_PASSAGES = [
+  {
+    source: "From <em>Macbeth</em>, Act I, Scene vii — William Shakespeare",
+    lines: [
+      '"I have no spur',
+      'To prick the sides of my intent, but only',
+      'Vaulting ambition, which o\'erleaps itself',
+      'And falls on th\' other side."'
+    ],
+    note: "In this soliloquy, Macbeth admits to himself that he has no good reason to murder King Duncan — only his own ambition drives him forward.",
+    q1: {
+      question: "This passage is an example of which literary device?",
+      options: ["Symbolism","Dramatic irony","Tragic flaw","Situational irony"],
+      correct: 2,
+      feedback: "Macbeth admits his only motivation is ambition — naming that internal weakness is the definition of a tragic flaw."
+    },
+    q2: {
+      options: [
+        '"I have no spur / To prick the sides of my intent"',
+        '"Vaulting ambition, which o\'erleaps itself / And falls on th\' other side"',
+        '"but only"',
+        '"And falls on th\' other side"'
+      ],
+      correct: 1,
+      feedback: '"Vaulting ambition…falls on th\' other side" names the fatal quality that will destroy Macbeth — the heart of a tragic flaw.'
+    }
+  },
+  {
+    source: "From <em>Romeo and Juliet</em>, Act III, Scene i — William Shakespeare",
+    lines: [
+      'Romeo draws his sword and slays Tybalt in',
+      'the street — though moments before he had',
+      'begged for peace. His hot temper, the very',
+      'impulsiveness that makes him passionate,',
+      'now earns him banishment and sets in motion',
+      'the tragedy that follows.'
+    ],
+    q1: {
+      question: "What literary device does this passage demonstrate?",
+      options: ["Dramatic irony","Tragic flaw","Symbolism","Situational irony"],
+      correct: 1,
+      feedback: "Romeo's impulsiveness is his tragic flaw — the internal weakness that causes his ruin even when he tried to avoid violence."
+    },
+    q2: {
+      options: [
+        '"Romeo draws his sword and slays Tybalt"',
+        '"moments before he had begged for peace"',
+        '"His hot temper, the very impulsiveness that makes him passionate"',
+        '"earns him banishment"'
+      ],
+      correct: 2,
+      feedback: '"His hot temper, the very impulsiveness that makes him passionate" names Romeo\'s fatal internal quality — the definition of a tragic flaw.'
+    }
+  },
+  {
+    source: "From <em>Macbeth</em>, Act V, Scene viii — William Shakespeare",
+    lines: [
+      'Macbeth had believed the witches\' prophecy',
+      'made him invincible — no man born of woman',
+      'could harm him. He fought fearlessly, certain',
+      'of his safety. Yet Macduff revealed he was',
+      '"from his mother\'s womb / Untimely ripped,"',
+      'and Macbeth fell.'
+    ],
+    q1: {
+      question: "What literary device is at work in this passage?",
+      options: ["Tragic flaw","Symbolism","Dramatic irony","Situational irony"],
+      correct: 3,
+      feedback: "Situational irony occurs when the opposite of what is expected happens. The prophecy that gave Macbeth false courage is the very thing that leads to his death."
+    },
+    q2: {
+      options: [
+        '"Macbeth had believed the witches\' prophecy made him invincible"',
+        '"He fought fearlessly, certain of his safety"',
+        '"from his mother\'s womb / Untimely ripped"',
+        '"Yet Macduff revealed…and Macbeth fell"'
+      ],
+      correct: 3,
+      feedback: '"Yet Macduff revealed…and Macbeth fell" captures the reversal — the prophecy meant to protect Macbeth is what destroys him.'
+    }
+  },
+  {
+    source: "From <em>The Gift of the Magi</em> — O. Henry (1905)",
+    lines: [
+      'Della sold her beautiful long hair to buy Jim',
+      'a chain for his pocket watch. Jim, meanwhile,',
+      'sold his watch to buy combs for Della\'s hair.',
+      'Each gave up their most prized possession to',
+      'give the other a gift — only to find the gift',
+      'now useless.'
+    ],
+    q1: {
+      question: "What literary device does this passage use?",
+      options: ["Symbolism","Tragic flaw","Situational irony","Dramatic irony"],
+      correct: 2,
+      feedback: "Both characters' loving sacrifices produce the opposite of what they intended — their gifts become useless because of each other's actions. That's situational irony."
+    },
+    q2: {
+      options: [
+        '"Della sold her beautiful long hair"',
+        '"Jim, meanwhile, sold his watch"',
+        '"Each gave up their most prized possession"',
+        '"only to find the gift now useless"'
+      ],
+      correct: 3,
+      feedback: '"only to find the gift now useless" is where the irony lands — generous acts produced the opposite of a happy result.'
+    }
+  },
+  {
+    source: "From <em>Macbeth</em>, Act I, Scene vi — William Shakespeare",
+    lines: [
+      'King Duncan arrives at Macbeth\'s castle and',
+      'praises its pleasant setting: "This castle hath',
+      'a pleasant seat; the air / Nimbly and sweetly',
+      'recommends itself / Unto our gentle senses."',
+      'He suspects nothing — yet the audience knows',
+      'Macbeth and Lady Macbeth have already',
+      'plotted to murder him inside those very walls.'
+    ],
+    q1: {
+      question: "What literary device is used in this passage?",
+      options: ["Tragic flaw","Dramatic irony","Symbolism","Situational irony"],
+      correct: 1,
+      feedback: "Dramatic irony occurs when the audience knows something a character does not. We know of the murder plot; Duncan does not."
+    },
+    q2: {
+      options: [
+        '"This castle hath a pleasant seat"',
+        '"the air / Nimbly and sweetly recommends itself"',
+        '"He suspects nothing — yet the audience knows Macbeth…plotted to murder him"',
+        '"Unto our gentle senses"'
+      ],
+      correct: 2,
+      feedback: '"He suspects nothing — yet the audience knows…plotted to murder him" is the gap between Duncan\'s knowledge and ours — the heart of dramatic irony.'
+    }
+  },
+  {
+    source: "From <em>The Necklace</em> — Guy de Maupassant (1884)",
+    lines: [
+      'Madame Loisel spent ten years in poverty to',
+      'replace what she believed was a priceless',
+      'diamond necklace. The reader learns at the',
+      "story's end — though Madame Loisel does not",
+      'know until the final line — that the original',
+      'necklace had always been a fake worth',
+      'almost nothing.'
+    ],
+    q1: {
+      question: "What literary device is present in this passage?",
+      options: ["Situational irony","Dramatic irony","Tragic flaw","Symbolism"],
+      correct: 1,
+      feedback: "The reader knows the necklace is fake long before Madame Loisel does — that gap in knowledge between the audience and a character is dramatic irony."
+    },
+    q2: {
+      options: [
+        '"Madame Loisel spent ten years in poverty"',
+        '"what she believed was a priceless diamond necklace"',
+        '"The reader learns…though Madame Loisel does not know"',
+        '"the original necklace had always been a fake"'
+      ],
+      correct: 2,
+      feedback: '"The reader learns…though Madame Loisel does not know" explicitly states the knowledge gap — the defining feature of dramatic irony.'
+    }
+  },
+  {
+    source: "From <em>Macbeth</em>, Act II, Scene ii — William Shakespeare",
+    lines: [
+      'After killing King Duncan, Macbeth stares at',
+      'his bloody hands: "Will all great Neptune\'s',
+      'ocean wash this blood / Clean from my hand?"',
+      'Later, Lady Macbeth furiously scrubs her',
+      'hands in her sleep, unable to remove a spot',
+      'no one else can see.'
+    ],
+    q1: {
+      question: "What literary device is central to this passage?",
+      options: ["Dramatic irony","Situational irony","Symbolism","Tragic flaw"],
+      correct: 2,
+      feedback: "Blood here is a symbol — it represents guilt that cannot be washed away. The recurring image of blood on hands carries meaning far beyond its literal sense."
+    },
+    q2: {
+      options: [
+        '"After killing King Duncan"',
+        '"Will all great Neptune\'s ocean wash this blood / Clean from my hand?"',
+        '"Lady Macbeth furiously scrubs her hands in her sleep"',
+        '"unable to remove a spot no one else can see"'
+      ],
+      correct: 1,
+      feedback: '"Will all great Neptune\'s ocean wash this blood clean?" transforms blood into a symbol of inescapable guilt — not even the ocean can cleanse it.'
+    }
+  },
+  {
+    source: "From <em>The Scarlet Letter</em> — Nathaniel Hawthorne (1850)",
+    lines: [
+      'Hester Prynne was forced to wear a scarlet',
+      'letter "A" on her chest as punishment for',
+      'adultery. Over time the letter transforms —',
+      'the townspeople begin to see it as standing',
+      'for "Able," recognizing her strength and',
+      'compassion rather than her sin.'
+    ],
+    q1: {
+      question: "What literary device is used in this passage?",
+      options: ["Tragic flaw","Situational irony","Dramatic irony","Symbolism"],
+      correct: 3,
+      feedback: "The scarlet letter is a symbol — an object that carries meaning far beyond itself. It shifts from representing shame to representing strength."
+    },
+    q2: {
+      options: [
+        '"Hester Prynne was forced to wear a scarlet letter"',
+        '"as punishment for adultery"',
+        '"the letter transforms — the townspeople begin to see it as standing for \'Able\'"',
+        '"recognizing her strength and compassion"'
+      ],
+      correct: 2,
+      feedback: '"the letter transforms — the townspeople begin to see it as standing for \'Able\'" shows the letter\'s symbolic power shifting to represent a new idea.'
+    }
+  }
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let order = [];       // shuffled indices into ALL_PASSAGES
+let current = 0;      // index into order[]
+let score = 0;
+let answered = {};    // "orderPos-q" → chosen
+
+// ── SHUFFLE ──────────────────────────────────────────────────────────────────
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ── BUILD HTML FOR ONE PASSAGE ───────────────────────────────────────────────
+function buildPassageHTML(orderPos) {
+  const p = ALL_PASSAGES[order[orderPos]];
+  const qNum1 = orderPos * 2 + 1;
+  const qNum2 = orderPos * 2 + 2;
+  const qLetters1 = ['A','B','C','D'];
+  const qLetters2 = ['F','G','H','J'];
+
+  const linesHTML = p.lines.map((line, i) =>
+    `<p><span class="line-num">${i+1}</span>${line}</p>`
+  ).join('');
+
+  const noteHTML = p.note
+    ? `<p style="margin-top:16px;font-size:12px;font-style:italic;color:#555;line-height:1.5;font-family:Arial,sans-serif">${p.note}</p>`
+    : '';
+
+  const opts1 = p.q1.options.map((opt, i) =>
+    `<div class="opt-row"><button onclick="answer(${orderPos},0,${i})" id="btn-${orderPos}-0-${i}">
+      <span class="opt-bubble plain" id="bub-${orderPos}-0-${i}">${qLetters1[i]}</span>
+      <span class="opt-text" id="txt-${orderPos}-0-${i}">${opt}</span>
+    </button></div>`
+  ).join('');
+
+  const opts2 = p.q2.options.map((opt, i) =>
+    `<div class="opt-row"><button onclick="answer(${orderPos},1,${i})" id="btn-${orderPos}-1-${i}">
+      <span class="opt-bubble plain" id="bub-${orderPos}-1-${i}">${qLetters2[i]}</span>
+      <span class="opt-text" id="txt-${orderPos}-1-${i}">${opt}</span>
+    </button></div>`
+  ).join('');
+
+  return `
+  <div class="passage-block${orderPos === 0 ? ' active' : ''}" data-pos="${orderPos}">
+    <div class="two-col">
+      <div class="passage-col">
+        <div class="passage-col-header">
+          <div class="passage-col-header-left">Passage ${orderPos + 1}</div>
+        </div>
+        <div class="passage-source-line">${p.source}</div>
+        <div class="passage-text">${linesHTML}${noteHTML}</div>
+      </div>
+      <div class="questions-col">
+        <div class="questions-col-header">
+          <span>Questions</span>
+          <span class="q-range-badge">${qNum1}–${qNum2}</span>
+        </div>
+        <div class="questions-list">
+          <div class="q-item">
+            <div class="q-number-row">
+              <div class="q-circle">${qNum1}</div>
+              <span class="q-type-label identify">Identify the Device</span>
+            </div>
+            <div class="q-text">${p.q1.question}</div>
+            <div class="options-list">${opts1}</div>
+            <div class="feedback-box" id="fb-${orderPos}-0"></div>
+          </div>
+          <hr class="q-divider">
+          <div class="q-item">
+            <div class="q-number-row">
+              <div class="q-circle">${qNum2}</div>
+              <span class="q-type-label locate">Locate the Evidence</span>
+            </div>
+            <div class="q-text">Which phrase from the passage best identifies your answer to Question ${qNum1}?</div>
+            <div class="options-list">${opts2}</div>
+            <div class="feedback-box" id="fb-${orderPos}-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── RENDER ALL PASSAGES ───────────────────────────────────────────────────────
+function renderPassages() {
+  const container = document.getElementById('test-page');
+  container.innerHTML = order.map((_, pos) => buildPassageHTML(pos)).join('');
+}
+
+// ── ANSWER ────────────────────────────────────────────────────────────────────
+function answer(pos, q, chosen) {
+  const key = `${pos}-${q}`;
+  if (answered[key] !== undefined) return;
+  answered[key] = chosen;
+
+  const p = ALL_PASSAGES[order[pos]];
+  const correct = q === 0 ? p.q1.correct : p.q2.correct;
+  const feedback = q === 0 ? p.q1.feedback : p.q2.feedback;
+
+  if (chosen === correct) score++;
+  document.getElementById('score-display').textContent = score;
+
+  for (let i = 0; i < 4; i++) {
+    const bub = document.getElementById(`bub-${pos}-${q}-${i}`);
+    const txt = document.getElementById(`txt-${pos}-${q}-${i}`);
+    const btn = document.getElementById(`btn-${pos}-${q}-${i}`);
+    if (!bub) continue;
+    btn.disabled = true;
+    bub.classList.remove('plain');
+    if (i === correct) { bub.classList.add('correct'); txt.className = 'opt-text correct-text'; }
+    else if (i === chosen) { bub.classList.add('wrong'); txt.className = 'opt-text wrong-text'; }
+  }
+
+  const fb = document.getElementById(`fb-${pos}-${q}`);
+  const ok = chosen === correct;
+  fb.className = `feedback-box ${ok ? 'correct' : 'wrong'} show`;
+  fb.textContent = ok ? feedback : `Not quite. ${feedback}`;
+  updateDots();
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────────
+function isDone(pos) {
+  return answered[`${pos}-0`] !== undefined && answered[`${pos}-1`] !== undefined;
+}
+
+function updateDots() {
+  const dots = document.getElementById('passage-dots');
+  dots.innerHTML = '';
+  for (let i = 0; i < 8; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot' + (i === current ? ' current' : isDone(i) ? ' done' : '');
+    d.onclick = (idx => () => goTo(idx))(i);
+    d.title = `Passage ${i + 1}`;
+    dots.appendChild(d);
+  }
+}
+
+function goTo(idx) {
+  document.querySelectorAll('.passage-block').forEach(b => b.classList.remove('active'));
+  const block = document.querySelector(`.passage-block[data-pos="${idx}"]`);
+  if (block) block.classList.add('active');
+  current = idx;
+  document.getElementById('section-sub').textContent = `Passage ${idx + 1} of 8`;
+  document.getElementById('prev-btn').disabled = idx === 0;
+  document.getElementById('next-btn').textContent = idx === 7 ? 'See Results &#9654;' : 'Next &#9654;';
+  updateDots();
+  window.scrollTo(0, 0);
+}
+
+function navigate(dir) {
+  if (dir === 1 && current === 7) { showResults(); return; }
+  goTo(Math.max(0, Math.min(7, current + dir)));
+}
+
+// ── RESULTS ───────────────────────────────────────────────────────────────────
+function showResults() {
+  document.getElementById('test-page').style.display = 'none';
+  document.getElementById('nav-strip').style.display = 'none';
+  document.querySelector('.passage-section-header').style.display = 'none';
+  document.getElementById('results-page').style.display = 'block';
+  document.getElementById('final-score-num').textContent = score;
+  const pct = Math.round((score / 16) * 100);
+  setTimeout(() => { document.getElementById('results-bar').style.width = pct + '%'; }, 100);
+  document.getElementById('results-message').textContent =
+    pct >= 88 ? 'Outstanding! You have a strong grasp of all four devices. You\'re ready to write your essay.' :
+    pct >= 63 ? 'Good work! Review the passages you missed before writing your essay.' :
+    'Keep practicing — re-read the passages and try again to strengthen your understanding.';
+  window.scrollTo(0, 0);
+}
+
+// ── RESTART ───────────────────────────────────────────────────────────────────
+function restartTest() {
+  current = 0; score = 0; answered = {};
+  document.getElementById('score-display').textContent = 0;
+  document.getElementById('test-page').style.display = 'block';
+  document.getElementById('nav-strip').style.display = 'flex';
+  document.querySelector('.passage-section-header').style.display = 'block';
+  document.getElementById('results-page').style.display = 'none';
+  document.getElementById('results-bar').style.width = '0%';
+  init();
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+function init() {
+  order = shuffle([0,1,2,3,4,5,6,7]);
+  renderPassages();
+  goTo(0);
+}
+
+init();
+</script>
+</body>
+</html>
